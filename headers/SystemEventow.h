@@ -3,9 +3,17 @@
 #include <string>
 #include <string.h>
 struct SystemEvent {
+
 public:
-	std::string wiadomosc;
-	void wypiszEvent(std::ostream& out) {
-		out << wiadomosc << std::endl;
+	SystemEvent(std::string wiadomosc) {
+		this->wiadomosc = wiadomosc;
 	}
+	void wypiszEvent(std::ostream& out) {
+		out << this->wiadomosc << std::endl;
+	}
+	std::string getEvent() { return this->wiadomosc; }
+
+private:
+	std::string wiadomosc;
+
 };

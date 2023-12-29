@@ -1,19 +1,19 @@
 #include "Zwierze.h"
 #include "Zolw.h"
 #include <iostream>
+#include <random>
+#include <string>
 void Zolw::rysowanie(std::ostream& out) {
-	out << "o@";
+	out << this->symbol;
 };
 
 void Zolw::akcja() {
-	if (rand() % 100 + 1 > 75) {
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<int> percentage(1, 100);
+	if (percentage(gen) > 75) {
 		Zwierze::akcja();
 	}
 }
 
-void Zolw::kolizja(Organizm* kolizator) {
-	if (kolizator->getSila() < 5) {
-		kolizator->setPolozenie(kolizator->getPopPolozenie());
-	}
-	//if(Zolw* drugi = dynamic_cast<Zolw*>(kolizator))
-}
+const std::string Zolw::symbol = "o@";
