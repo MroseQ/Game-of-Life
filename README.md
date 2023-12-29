@@ -1,2 +1,2 @@
 # Game-of-Life
-Version 0.3
+Version 1.0
